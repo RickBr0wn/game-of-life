@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/addons/p5.dom.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <title>The Game of Life</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">
+            <h1>Origins</h1>
+
+        </div>
+        <div class="card-style">
+            <p>John von Neumann has defined life (despite his careful disclaimers) in late 1940 as a
+                <strong>creation</strong> (being or organism) which: </p>
+            <ul>
+                <li>Can reproduce itself.</li>
+                <li>Can simulate a Turing machine.</li>
+            </ul>
+            <p>John von Neumann was thinking about an engineering solution which would use electromagnetic components floating
+                randomly in liquid (or gas). This turned out not to be realistic at the given technology state of those days.
+                Thus, ingeniously, Stanisław Ulam invented the cell automata which in principle were supposed to simulate
+                von Neumann's potential electro-magnetic constructions. Ulam discussed his cell automata in 2-dimensional
+                lattice, in several papers; he applied the early computers to do so. In parallel, John von Neumann attempted
+                to construct Ulam's cellular automaton. He virtually succeeded. He was busy with his other projects, thus,
+                he left some details unfinished. His construction was complicated because it tried to simulate his own engineering
+                design. Over time, simpler life constructions were provided by other researchers, and published in papers
+                and books.</p>
+            <p>
+                The initial goal of John Conway was to define an interesting and unpredictable cell automaton. Thus, he wanted some configurations
+                to last for a long time before dying, other configurations to go on forever without allowing cycles, etc.
+                It was a significant challenge and an open problem for years before experts on cell automatons managed to
+                prove that indeed, Conway' LIFE game admitted a configuration which was *alive* in the sense of satisfying
+                the two John von Neumann's general axioms of life, mentioned above.
+            </p>
+            <p>
+                While the definitions before Conway's LIFE were proof-oriented, Conway's construction simply aimed at simplicity without
+                a priori aiming at the proof of automaton being alive.
+            </p>
+            <p>
+                The game made its first public appearance in the October 1970 issue of Scientific American, in Martin Gardner's "Mathematical
+                Games" column. From a theoretical point of view, it is interesting because it has the power of a universal
+                Turing machine: that is, anything that can be computed algorithmically can be computed within Conway's Game
+                of Life. Gardner wrote:
+            </p>
+            <p class="quote">
+                The game made Conway instantly famous, but it also opened up a whole new field of mathematical research, the field of cellular
+                automata ... Because of Life's analogies with the rise, fall and alterations of a society of living organisms,
+                it belongs to a growing class of what are called "simulation games" (games that resemble real life processes).
+            </p>
+            <p>
+                Ever since its publication, Conway's Game of Life has attracted much interest, because of the surprising ways in which the
+                patterns can evolve. Life provides an example of emergence and self-organization. Scholars in various fields,
+                such as computer science, physics, biology, biochemistry, economics, mathematics, philosophy, and generative
+                sciences have made use of the way that complex patterns can emerge from the implementation of the game's
+                simple rules. The game can also serve as a didactic analogy, used to convey the somewhat counterintuitive
+                notion that "design" and "organization" can spontaneously emerge in the absence of a designer. For example,
+                philosopher and cognitive scientist Daniel Dennett has used the analogy of Conway's Life "universe" extensively
+                to illustrate the possible evolution of complex philosophical constructs, such as consciousness and free
+                will, from the relatively simple set of deterministic physical laws, which might govern our universe.
+            </p>
+            <p>
+                The popularity of Conway's Game of Life was helped by its coming into being just in time for a new generation of inexpensive
+                computer access which was being released into the market. The game could be run for hours on these machines,
+                which would otherwise have remained unused at night. In this respect, it foreshadowed the later popularity
+                of computer-generated fractals. For many, Life was simply a programming challenge: a fun way to use otherwise
+                wasted CPU cycles. For some, however, Life had more philosophical connotations. It developed a cult following
+                through the 1970s and beyond; current developments have gone so far as to create theoretic emulations of
+                computer systems within the confines of a Life board.
+            </p>
+            <p>
+                Conway chose his rules carefully, after considerable experimentation, to meet these criteria:
+            </p>
+            <ul>
+                <li>There should be no explosive growth.</li>
+                <li>There should exist small initial patterns with chaotic, unpredictable outcomes.</li>
+                <li>There should be potential for von Neumann universal constructors.</li>
+                <li>The rules should be as simple as possible, whilst adhering to the above constraints.</li>
+            </ul>
+            <a href="index.html">
+                <div class="btn">Back</div>
+            </a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="title">
+            <h1>Undecidability</h1>
+        </div>
+        <div class="card-style">
+            <p>
+                Many patterns in the Game of Life eventually become a combination of still lifes, oscillators and spaceships; other patterns
+                may be called chaotic. A pattern may stay chaotic for a very long time until it eventually settles to such
+                a combination.
+            </p>
+            <p>
+                It can be asked whether Life is decidable: whether an algorithm exists, so that given an "initial" pattern and a "later"
+                pattern, the algorithm can tell whether, starting with the initial pattern, the later pattern is ever going
+                to appear. This turns out to be impossible: no such algorithm exists. This is in fact a corollary of the
+                halting problem.
+            </p>
+            <p>
+                Indeed, since Life includes a pattern that is equivalent to a UTM (universal Turing machine), this "deciding" algorithm,
+                if it existed, could have been used to solve the halting problem, by taking the initial pattern as the one
+                corresponding to a UTM+input and the later pattern as the one corresponding to a halting state of the machine
+                with an empty tape (as one can modify the Turing machine to always erase the tape before halting). However
+                the halting problem is provably undecidable and so such an algorithm does not exist.
+            </p>
+            <p>
+                It also follows that some patterns exist that remain chaotic forever: otherwise one could progress the game sequentially
+                until a non-chaotic pattern emerges, and then compute whether a later pattern is going to appear.
+            </p>
+            <a href="index.html">
+                <div class="btn">Back</div>
+            </a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="title">
+            <h1>Self-replication</h1>
+        </div>
+        <div class="card-style">
+            <p>
+                On May 18, 2010, Andrew J. Wade announced a self-constructing pattern dubbed Gemini which creates a copy of itself while
+                destroying its parent. This pattern replicates in 34 million generations, and uses an instruction tape made
+                of gliders which oscillate between two stable configurations made of Chapman-Greene construction arms. These,
+                in turn, create new copies of the pattern, and destroy the previous copy. Gemini is also a spaceship, and
+                is the first spaceship constructed in the Game of Life that is a knightship, which is a spaceship that is
+                neither orthogonal nor purely diagonal.
+            </p>
+            <ul>
+                <li>On November 23, 2013, Dave Greene built the first replicator in Conway's Game of Life that creates a complete
+                    copy of itself, including the instruction tape.</li>
+                <li>In December 2015, diagonal versions of the Gemini were built.</li>
+                <li>On March 6, 2018, the first truly Elementary Knightship, Sir Robin, was discovered by Adam P. Goucher.</li>
+            </ul>
+            <a href="index.html">
+                <div class="btn">Back</div>
+            </a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="title">
+            <h1>Iteration</h1>
+        </div>
+        <div class="card-style">
+            <p>
+                From most random initial patterns of living cells on the grid, observers will find the population constantly changing as
+                the generations tick by. The patterns that emerge from the simple rules may be considered a form of beauty.
+                Small isolated subpatterns with no initial symmetry tend to become symmetrical. Once this happens, the symmetry
+                may increase in richness, but it cannot be lost unless a nearby subpattern comes close enough to disturb
+                it. In a very few cases the society eventually dies out, with all living cells vanishing, though this may
+                not happen for a great many generations. Most initial patterns eventually "burn out", producing either stable
+                figures or patterns that oscillate forever between two or more states; many also produce one or more gliders
+                or spaceships that travel indefinitely away from the initial location. Because of the nearest-neighbour based
+                rules, no "information" can travel through the grid at a greater rate than one cell per unit time, so this
+                velocity is said to be the cellular automaton speed of light and denoted c.
+            </p>
+
+            <a href="index.html">
+                <div class="btn">Back</div>
+            </a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="title">
+            <h1>Algorithms</h1>
+        </div>
+        <div class="card-style">
+            <p>
+                Early patterns with unknown futures, such as the R-pentomino, led computer programmers across the world to write programs
+                to track the evolution of Life patterns. Most of the early algorithms were similar; they represented Life
+                patterns as two-dimensional arrays in computer memory. Typically two arrays are used, one to hold the current
+                generation, and one in which to calculate its successor. Often 0 and 1 represent dead and live cells respectively.
+                A nested for loop considers each element of the current array in turn, counting the live neighbours of each
+                cell to decide whether the corresponding element of the successor array should be 0 or 1. The successor array
+                is displayed. For the next iteration, the arrays swap roles so that the successor array in the last iteration
+                becomes the current array in the next iteration.
+            </p>
+            <p>
+                A variety of minor enhancements to this basic scheme are possible, and there are many ways to save unnecessary computation.
+                A cell that did not change at the last time step, and none of whose neighbours changed, is guaranteed not
+                to change at the current time step as well. So, a program that keeps track of which areas are active can
+                save time by not updating the inactive zones.
+            </p>
+            <p>
+                To avoid decisions and branches in the counting loop, the rules can be rearranged from an egocentric approach of the inner
+                field regarding its neighbours to a scientific observer's viewpoint: if the sum of all nine fields is 3,
+                the inner field state for the next generation will be life (no matter of its previous contents); if the all-field
+                sum is 4, the inner field retains its current state and every other sum sets the inner field to death.
+            </p>
+            <p>
+                If it is desired to save memory, the storage can be reduced to one array plus 3 line buffers. One line buffer is used to
+                calculate the successor state for a line, then the second line buffer is used to calculate the successor
+                state for the next line. The first buffer is then written to its line and freed to hold the successor state
+                for the third line. If a toroidal array is used, a third buffer is needed so that the original state of the
+                first line in the array can be saved until the last line is computed.
+            </p>
+            <p>
+                In principle, the Life field is infinite, but computers have finite memory. This leads to problems when the active area encroaches
+                on the border of the array. Programmers have used several strategies to address these problems. The simplest
+                strategy is simply to assume that every cell outside the array is dead. This is easy to program but leads
+                to inaccurate results when the active area crosses the boundary. A more sophisticated trick is to consider
+                the left and right edges of the field to be stitched together, and the top and bottom edges also, yielding
+                a toroidal array. The result is that active areas that move across a field edge reappear at the opposite
+                edge. Inaccuracy can still result if the pattern grows too large, but at least there are no pathological
+                edge effects. Techniques of dynamic storage allocation may also be used, creating ever-larger arrays to hold
+                growing patterns.
+            </p>
+            <p>
+                Alternatively, the programmer may abandon the notion of representing the Life field with a 2-dimensional array, and use a
+                different data structure, like a vector of coordinate pairs representing live cells. This approach allows
+                the pattern to move about the field unhindered, as long as the population does not exceed the size of the
+                live-coordinate array. The drawback is that counting live neighbours becomes a hash-table lookup or search
+                operation, slowing down simulation speed. With more sophisticated data structures this problem can also be
+                largely solved.
+            </p>
+            <p>
+                For exploring large patterns at great time-depths, sophisticated algorithms such as Hashlife may be useful. There is also
+                a method, applicable to other cellular automata too, for implementation of the Game of Life using arbitrary
+                asynchronous updates whilst still exactly emulating the behaviour of the synchronous game.
+            </p>
+            <p>
+                HOPE YOU'VE ENJOYED!!
+
+
+            </p>
+            <p>
+                <i class="fab fa-github"></i> Written by Rick Brown 2018 - All text taken from Wikipedia
+            </p>
+            <a href="index.html">
+                <div class="btn">Back</div>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

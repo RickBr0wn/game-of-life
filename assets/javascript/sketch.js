@@ -26,7 +26,12 @@ function countNeighbours(grid, x, y) {
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
-  }
+}
+
+function resetButton(){
+    clear();
+    setup();
+}
 
 function setup() {
     createCanvas(1920, 600);
@@ -40,7 +45,7 @@ function setup() {
             // Populate each 'grid location' with a random 0 or 1
             grid[i][j] = floor(random(2));
         }
-    }  
+    }
 }
 
 function draw() {
@@ -55,7 +60,7 @@ function draw() {
                 // Draw a rectangle in each 'grid location'
                 noStroke();
                 fill('#2885C4');
-                
+
                 rect(x, y, scale - 1, scale - 1);
             }
         }
