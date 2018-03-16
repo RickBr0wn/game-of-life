@@ -24,6 +24,10 @@ function countNeighbours(grid, x, y) {
     return sum;
 }
 
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
+  }
+
 function setup() {
     createCanvas(1920, 600);
     frameRate(10);
@@ -40,7 +44,7 @@ function setup() {
 }
 
 function draw() {
-    background(0);
+    background('#57B3F1');
 
     // Iterate through the 'grid'
     for (let i = 0; i < cols; i++) {
@@ -49,7 +53,9 @@ function draw() {
             let y = j * scale;
             if (grid[i][j] == 1) {
                 // Draw a rectangle in each 'grid location'
-                fill(255);
+                noStroke();
+                fill('#2885C4');
+                
                 rect(x, y, scale - 1, scale - 1);
             }
         }

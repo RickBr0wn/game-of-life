@@ -1,4 +1,29 @@
 body{
-    margin: 0 auto;
+    margin: 0;
+    padding: 0;
+    background: #2E9CE6;
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+    color: #fff;
+}
+
+.title{
+    background: #2885C4;
+    padding-top: 2px;
+    padding-bottom: 6px;
+    padding-left: 20px;
+    padding-right: 0px;
+    margin-top: 3rem;
+}
+
+.card-style{
+    background: #57B3F1;
+    margin-top: -10px;
     padding: 3rem;
+    margin-bottom: 3rem;
+}
+
+.container-fluid{
+    padding-left: 0px;
+    padding-right: 0px;
 }
