@@ -50,7 +50,6 @@ function setup() {
 
 function draw() {
     background('#57B3F1');
-
     // Iterate through the 'grid'
     for (let i = 0; i < cols; i++) {
         for (let j = 0; j < rows; j++) {
@@ -60,7 +59,6 @@ function draw() {
                 // Draw a rectangle in each 'grid location'
                 noStroke();
                 fill('#2885C4');
-
                 rect(x, y, scale - 1, scale - 1);
             }
         }
@@ -71,9 +69,7 @@ function draw() {
     // Compute 'next' based on 'grid'
     for (let i = 0; i < cols; i++) {
         for (let j = 0; j < rows; j++) {
-
             let state = grid[i][j];
-
             // Count 'live neighbours'
             let sum = 0;
             let neighbours = countNeighbours(grid, i, j);
@@ -86,8 +82,6 @@ function draw() {
                 next[i][j] = state;
             }
         }
-
     }
     grid = next;
-
 }
