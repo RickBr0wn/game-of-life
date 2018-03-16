@@ -1,6 +1,6 @@
 // Global variables
 let grid, cols, rows;
-let scale = 10;
+let scale = 5;
 
 function make2DArray(cols, rows) {
     let arr = new Array(cols);
@@ -24,8 +24,13 @@ function countNeighbours(grid, x, y) {
     return sum;
 }
 
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
+  }
+
 function setup() {
-    createCanvas(600, 400);
+    createCanvas(1920, 600);
+    frameRate(10);
     cols = width / scale;
     rows = height / scale;
     // Create the 'grid'
@@ -35,11 +40,11 @@ function setup() {
             // Populate each 'grid location' with a random 0 or 1
             grid[i][j] = floor(random(2));
         }
-    }
+    }  
 }
 
 function draw() {
-    background(0);
+    background('#57B3F1');
 
     // Iterate through the 'grid'
     for (let i = 0; i < cols; i++) {
@@ -48,7 +53,9 @@ function draw() {
             let y = j * scale;
             if (grid[i][j] == 1) {
                 // Draw a rectangle in each 'grid location'
-                fill(255);
+                noStroke();
+                fill('#2885C4');
+                
                 rect(x, y, scale - 1, scale - 1);
             }
         }
