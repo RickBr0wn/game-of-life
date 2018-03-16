@@ -27,3 +27,21 @@ body{
     padding-left: 0px;
     padding-right: 0px;
 }
+
+.container-fluid .title{
+    padding-top: 10px;
+}
+
+.btn{
+    background: #2885C4;
+    font-weight: bolder;
+}
+
+a{
+    text-decoration: none;
+    color: #fff;
+}
+
+h1{
+    font-weight: bolder;
+}
